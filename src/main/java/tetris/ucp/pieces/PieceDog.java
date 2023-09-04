@@ -9,7 +9,7 @@ public class PieceDog extends PieceBase{
      public PieceDog(boolean isRightAnswer){
           this.isRight = isRightAnswer;
      }
-     
+
      @Override
      public String showPiece(){
           if (isRight){
