@@ -1,7 +1,6 @@
 package Interfaces;
 
-public interface IPiece {
-     String showPiece();
+public interface IRotator {
      String rotateLeft();
      String rotateRight();
 }

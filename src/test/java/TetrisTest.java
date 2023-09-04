@@ -2,11 +2,11 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import tetris.ucp.pieces.TheDog;
-import tetris.ucp.pieces.TheL;
-import tetris.ucp.pieces.TheStick;
-import tetris.ucp.pieces.TheSquare;
-import tetris.ucp.pieces.TheT;
+import tetris.ucp.pieces.PieceDog;
+import tetris.ucp.pieces.PieceL;
+import tetris.ucp.pieces.PieceStick;
+import tetris.ucp.pieces.PieceSquare;
+import tetris.ucp.pieces.PieceT;
 
 public class TetrisTest 
 {
@@ -14,42 +14,42 @@ public class TetrisTest
     
     public void checkStick()
     {
-        TheStick palo = new TheStick();
+        PieceStick palo = new PieceStick();
         String figura = palo.showPiece();
         assertEquals("1000100010001000", figura);
     }
 
     @Test
     public void checkRightL(){
-     TheL eleDerecha = new TheL(true);
+     PieceL eleDerecha = new PieceL(true);
      String figura = eleDerecha.showPiece();
      assertEquals("1000100011000000", figura);
     }
 
     @Test
     public void checkLeftL(){
-     TheL eleIzquierda = new TheL(false);
+     PieceL eleIzquierda = new PieceL(false);
      String figura = eleIzquierda.showPiece();
      assertEquals("0100010011000000", figura);
     }
 
     @Test
     public void checkLeftDog(){
-     TheDog perroIzquierdo = new TheDog(false);
+     PieceDog perroIzquierdo = new PieceDog(false);
      String figura = perroIzquierdo.showPiece();
      assertEquals("1100011000000000", figura);
     }
 
     @Test
     public void checkRightDog(){
-     TheDog perroDerecho = new TheDog(true);
+     PieceDog perroDerecho = new PieceDog(true);
      String figura = perroDerecho.showPiece();
      assertEquals("0110110000000000", figura);
     }
 
     @Test
     public void checkSquare(){
-     TheSquare cuadrado = new TheSquare();
+     PieceSquare cuadrado = new PieceSquare();
      String figura = cuadrado.showPiece();
      assertEquals("1100110000000000", figura);
     }
@@ -57,7 +57,7 @@ public class TetrisTest
    @Test
     public void checkT()
     {
-        TheT talleres = new TheT();
+        PieceT talleres = new PieceT();
         String figura = talleres.showPiece();
         assertEquals("0100111000000000", figura);
     }

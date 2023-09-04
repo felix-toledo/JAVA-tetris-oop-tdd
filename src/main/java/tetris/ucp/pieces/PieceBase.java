@@ -1,22 +1,24 @@
 package tetris.ucp.pieces;
 
-import Interfaces.IPiece;
+import Interfaces.IRotator;
 
-public class Pieces implements IPiece{
+public class PieceBase implements IRotator{
      protected int actualPos;
      protected String [] figure;
-     public String rotatePiece(boolean toRight){
-          if (toRight){
-               actualPos++;
+     
+     public String rotateRight(){
+          actualPos++;
                if (actualPos == 4){
                     actualPos = 0;
                }
-          } else {
-               actualPos--;
+          return showPiece();
+     }
+
+     public String rotateLeft(){
+          actualPos--;
                if (actualPos == -1){
                     actualPos = 3;
                }
-          }
           return showPiece();
      }
 

@@ -1,13 +1,12 @@
 package tetris.ucp.pieces;
 
-
-public class TheL extends Pieces{
+public class PieceDog extends PieceBase{
      boolean isRight;
 
-     String [] right = {"1000100011000000", "right2", "right3", "right4"};
-     String [] left = {"0100010011000000", "left2", "left3", "left4"};
+     String [] right = {"0110110000000000", "right2", "right3", "right4"};
+     String [] left = {"1100011000000000", "left2", "left3", "left4"};
 
-     public TheL(boolean isRightAnswer){
+     public PieceDog(boolean isRightAnswer){
           this.isRight = isRightAnswer;
      }
      
