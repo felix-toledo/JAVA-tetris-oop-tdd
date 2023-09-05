@@ -1,14 +1,12 @@
 package tetris.ucp;
 import java.util.Random;
 
-import javax.xml.namespace.QName;
-
 import tetris.ucp.pieces.PieceBase;
 
 
 public class Board {
      //Creo el tablero.
-     public String [] board = {  "0000000000",
+     public String [] board = {   "0000000000",
                                    "0000000000",
                                    "0000000000",
                                    "0000000000",
@@ -31,17 +29,23 @@ public class Board {
 
      public String[] updateBoardOnTick(PieceBase pieceToUpdate){
           int[] actualPosition = pieceToUpdate.getPosInBoard();
-          board[actualPosition[1]+4] = lineUpdate(actualPosition[1]+5, pieceToUpdate, actualPosition[0], 4);
-          pieceToUpdate.setActualPos(actualPosition[0], actualPosition[1]+1);
+          //linea 0+1 -> primer linea de la pieza
+          board[actualPosition[1]] = "0000000000";
 
+          for (int i = 0; i < 4; i++) {
+               board[actualPosition[1] + i + 1] = lineUpdate(actualPosition[1] + i + 2, pieceToUpdate, actualPosition[0], i + 1);
+          }
+     
+          pieceToUpdate.setActualPos(actualPosition[0], actualPosition[1]+1);
+          
           return board;
      }
      
      public String[] insertPieceInBoard(PieceBase piece, int position){
-          board[3] = lineUpdate(4, piece, position, 4);
-          board [2] = lineUpdate(3, piece, position, 3);
-          board [1] = lineUpdate(2, piece, position, 2);
-          board [0] = lineUpdate(1, piece, position, 1);
+
+          for (int i = 0; i < 4; i++) {
+               board[i] = lineUpdate(i + 1, piece, position, i + 1);
+          }
 
           piece.setActualPos(position, 0);
 

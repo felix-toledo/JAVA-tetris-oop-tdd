@@ -5,11 +5,12 @@ import org.junit.Test;
 import tetris.ucp.Board;
 import tetris.ucp.pieces.PieceDog;
 import tetris.ucp.pieces.PieceSquare;
+import tetris.ucp.pieces.PieceStick;
 
 public class TestInsertPiece 
 {
     @Test
-    public void insert_square_in_board(){
+    public void insert_square_in_board_check_if_update(){
      Board b1 = new Board();
      PieceSquare cuadrado = new PieceSquare();
      String [] expected = { "0011000000",
@@ -67,11 +68,12 @@ public class TestInsertPiece
           int [] posExpected = {2, 0};
 
           assertArrayEquals(expected, tableroConInsertado);
-          //assertEquals(posExpected, perritoDerecho.getPosInBoard());
+          assertArrayEquals(posExpected, perritoDerecho.getPosInBoard());
+          //assertArrayEquals(posExpected, b1.updateBoardOnTick(perritoDerecho));
 
-          String [] newExpected = {     "0011000000",
+            String [] newExpected = {   "0000000000",
                                         "0011000000",
-                                        "0011000000", 
+                                        "0001100000", 
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
@@ -81,5 +83,77 @@ public class TestInsertPiece
                                         "0000000000"};
 
           assertArrayEquals(newExpected, b1.updateBoardOnTick(perritoDerecho));
+
+          String [] newExpected1 = {    "0000000000",
+                                        "0000000000",
+                                        "0011000000", 
+                                        "0001100000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000", 
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000"};
+
+          assertArrayEquals(newExpected1, b1.updateBoardOnTick(perritoDerecho));
+
+          String [] newExpected2 = {    "0000000000",
+                                        "0000000000",
+                                        "0000000000", 
+                                        "0011000000",
+                                        "0001100000",
+                                        "0000000000",
+                                        "0000000000", 
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000"};
+
+          assertArrayEquals(newExpected2, b1.updateBoardOnTick(perritoDerecho));
+    }
+
+    @Test
+    public void insert_stick_in_board(){
+      Board b2 = new Board();
+      PieceStick palito = new PieceStick();
+
+      String[] expectedBoard = {    "0000010000",
+                                    "0000010000",
+                                    "0000010000", 
+                                    "0000010000",
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000"};
+
+      assertArrayEquals(expectedBoard, b2.insertPieceInBoard(palito, 5));
+
+      String[] expectedBoard2 = {   "0000000000",
+                                    "0000010000",
+                                    "0000010000", 
+                                    "0000010000",
+                                    "0000010000",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000"};
+      
+      assertArrayEquals(expectedBoard2, b2.updateBoardOnTick(palito));    
+      
+      String[] expectedBoard3 = {   "0000000000",
+                                    "0000000000",
+                                    "0000010000", 
+                                    "0000010000",
+                                    "0000010000",
+                                    "0000010000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000"};
+
+      assertArrayEquals(expectedBoard3, b2.updateBoardOnTick(palito)); 
+
     }
 }
