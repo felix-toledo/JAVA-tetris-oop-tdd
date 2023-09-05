@@ -25,7 +25,7 @@ public class TestInsertPiece
 
      String [] tableroConInsertado = b1.insertPieceInBoard(cuadrado, 2);
 
-     assertEquals(expected, tableroConInsertado); 
+     assertArrayEquals(expected, tableroConInsertado); 
     }
 
     @Test
@@ -45,7 +45,7 @@ public class TestInsertPiece
 
           String [] tableroConInsertado = b1.insertPieceInBoard(perritoDerecho, 2);
 
-          assertEquals(expected, tableroConInsertado); 
+          assertArrayEquals(expected, tableroConInsertado); 
     }
 
     @Test
@@ -64,7 +64,22 @@ public class TestInsertPiece
                                    "0000000000"};
 
           String [] tableroConInsertado = b1.insertPieceInBoard(perritoDerecho, 2);
+          int [] posExpected = {2, 0};
 
-          assertEquals(expected, tableroConInsertado); 
+          assertArrayEquals(expected, tableroConInsertado);
+          //assertEquals(posExpected, perritoDerecho.getPosInBoard());
+
+          String [] newExpected = {     "0011000000",
+                                        "0011000000",
+                                        "0011000000", 
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000", 
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000"};
+
+          assertArrayEquals(newExpected, b1.updateBoardOnTick(perritoDerecho));
     }
 }

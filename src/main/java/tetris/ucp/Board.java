@@ -1,6 +1,8 @@
 package tetris.ucp;
 import java.util.Random;
 
+import javax.xml.namespace.QName;
+
 import tetris.ucp.pieces.PieceBase;
 
 
@@ -27,6 +29,13 @@ public class Board {
           return lineUpdated; // devuelvo la linea actualizada
      }
 
+     public String[] updateBoardOnTick(PieceBase pieceToUpdate){
+          int[] actualPosition = pieceToUpdate.getPosInBoard();
+          board[actualPosition[1]+4] = lineUpdate(actualPosition[1]+5, pieceToUpdate, actualPosition[0], 4);
+          pieceToUpdate.setActualPos(actualPosition[0], actualPosition[1]+1);
+
+          return board;
+     }
      
      public String[] insertPieceInBoard(PieceBase piece, int position){
           board[3] = lineUpdate(4, piece, position, 4);
