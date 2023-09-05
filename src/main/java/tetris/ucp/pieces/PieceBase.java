@@ -5,7 +5,8 @@ import Interfaces.IRotator;
 public class PieceBase implements IRotator{
      protected int actualPos;
      protected String [] figure;
-     
+     protected int [] posInBoard;
+
      public String rotateRight(){
           actualPos++;
                if (actualPos == 4){
@@ -22,8 +23,16 @@ public class PieceBase implements IRotator{
           return showPiece();
      }
 
+     public void setActualPos(int x, int y){
+          posInBoard[0] = x;
+          posInBoard[1] = y;
+     }
+
+     public int [] getPosInBoard(){
+          return posInBoard;
+     }
+
      public String showPiece(){
-        return (figure[actualPos]);
-         
+        return (figure[actualPos]);    
      }
 }

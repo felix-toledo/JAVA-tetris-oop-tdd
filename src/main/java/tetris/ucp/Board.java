@@ -34,6 +34,8 @@ public class Board {
           board [1] = lineUpdate(2, piece, position, 2);
           board [0] = lineUpdate(1, piece, position, 1);
 
+          piece.setActualPos(position, 0);
+
           return board;
      }
 }
