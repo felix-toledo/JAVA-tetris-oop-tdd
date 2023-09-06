@@ -19,8 +19,8 @@ public class Board {
 
      //Funcion que me va a servir para actualizar una linea del tablero con UNA LINEA de la pieza.
      public String lineUpdate(int lineToUpdate, PieceBase pieceToInsert, int positionToInsert, int lineInPieceToActualize){
-          StringBuilder lineOfTheBoard = new StringBuilder(board[lineToUpdate-1]); //extraigo la linea del tablero.
-          String lineOfThePieceToInsert = pieceToInsert.showPiece().substring((lineInPieceToActualize*4)-4, (lineInPieceToActualize*4)-1);//extraigo la linea de la pieza
+          StringBuilder lineOfTheBoard = new StringBuilder(board[lineToUpdate]); //extraigo la linea del tablero.
+          String lineOfThePieceToInsert = pieceToInsert.showPiece().substring((lineInPieceToActualize*4)-4, (lineInPieceToActualize*4));//extraigo la linea de la pieza
           lineOfTheBoard.replace(positionToInsert, positionToInsert + lineOfThePieceToInsert.length(), lineOfThePieceToInsert); //agrego la linea de la pieza en la posición deseada
           String lineUpdated = lineOfTheBoard.toString();
 
@@ -44,8 +44,9 @@ public class Board {
      public String[] insertPieceInBoard(PieceBase piece, int position){
 
           for (int i = 0; i < 4; i++) {
-               board[i] = lineUpdate(i + 1, piece, position, i + 1);
+               board[i] = lineUpdate(i, piece, position, i + 1);
           }
+          
 
           piece.setActualPos(position, 0);
 

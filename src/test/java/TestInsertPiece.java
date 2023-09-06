@@ -153,7 +153,32 @@ public class TestInsertPiece
                                     "0000000000",
                                     "0000000000"};
 
-      assertArrayEquals(expectedBoard3, b2.updateBoardOnTick(palito)); 
+      assertArrayEquals(expectedBoard3, b2.updateBoardOnTick(palito));
+      
+      palito.rotateRight();
+      String[] expectedBoard4 = {   "0000000000",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000011110",
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000"};
+      assertArrayEquals(expectedBoard4, b2.updateBoardOnTick(palito));
 
+      String[] expectedBoard5 = {   "0000000000",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000011110",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000"};
+      assertArrayEquals(expectedBoard5, b2.updateBoardOnTick(palito));
+                              
     }
 }
