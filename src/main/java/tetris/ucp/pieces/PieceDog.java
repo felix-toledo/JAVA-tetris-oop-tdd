@@ -3,8 +3,8 @@ package tetris.ucp.pieces;
 public class PieceDog extends PieceBase{
      boolean isRight;
 
-     String [] right = {"0110110000000000", "right2", "right3", "right4"};
-     String [] left = {"1100011000000000", "left2", "left3", "left4"};
+     String [] right = {"0110110000000000", "1000110001000000", "0110110000000000", "1000110001000000"};
+     String [] left = {"1100011000000000", "0100110010000000", "1100011000000000", "0100110010000000"};
 
      public PieceDog(boolean isRightAnswer){
           this.isRight = isRightAnswer;

@@ -6,7 +6,7 @@ import tetris.ucp.pieces.PieceBase;
 
 public class Board {
      //Creo el tablero.
-     public String [] board = {   "0000000000",
+     public String [] board = {    "0000000000",
                                    "0000000000",
                                    "0000000000",
                                    "0000000000",

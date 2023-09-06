@@ -4,8 +4,8 @@ package tetris.ucp.pieces;
 public class PieceL extends PieceBase{
      boolean isRight;
 
-     String [] right = {"1000100011000000", "right2", "right3", "right4"};
-     String [] left = {"0100010011000000", "left2", "left3", "left4"};
+     String [] right = {"1000100011000000", "0010111000000000", "1100010001000000", "0000111010000000"};
+     String [] left = {"0100010011000000", "0100011100000000", "0011001000100000", "0000011100010000"};
 
      public PieceL(boolean isRightAnswer){
           this.isRight = isRightAnswer;
