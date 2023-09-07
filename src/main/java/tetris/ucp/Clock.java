@@ -10,9 +10,8 @@ public class Clock {
           this.board = board;
      }
 
-     public String[] tick(PieceBase piece){
+     public void tick(PieceBase piece){
           setTimer();
-          return board.updateBoardOnTick(piece);
      }
 
      private void setTimer(){

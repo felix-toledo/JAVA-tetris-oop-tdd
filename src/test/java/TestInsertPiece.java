@@ -25,8 +25,33 @@ public class TestInsertPiece
                             "0000000000"};
 
      String [] tableroConInsertado = b1.insertPieceInBoard(cuadrado, 2);
-
      assertArrayEquals(expected, tableroConInsertado); 
+
+     String [] expected2 = { "0000000000",
+                             "0011000000",
+                             "0011000000", 
+                             "0000000000",
+                             "0000000000",
+                             "0000000000",
+                             "0000000000", 
+                             "0000000000",
+                             "0000000000",
+                             "0000000000"};
+
+     assertArrayEquals(expected2, b1.updateBoardOnTick(cuadrado)); 
+
+     String [] expected3 = { "0000000000",
+                             "0000000000",
+                             "0011000000", 
+                             "0011000000",
+                             "0000000000",
+                             "0000000000",
+                             "0000000000", 
+                             "0000000000",
+                             "0000000000",
+                             "0000000000"};
+
+     assertArrayEquals(expected3, b1.updateBoardOnTick(cuadrado)); 
     }
 
     @Test
@@ -179,6 +204,33 @@ public class TestInsertPiece
                                     "0000000000",
                                     "0000000000"};
       assertArrayEquals(expectedBoard5, b2.updateBoardOnTick(palito));
-                              
+
+      String[] expectedBoard6 = {   "0000000000",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000010000",
+                                    "0000010000", 
+                                    "0000010000",
+                                    "0000010000",
+                                    "0000000000"};
+
+      palito.rotateRight();
+      assertArrayEquals(expectedBoard6, b2.updateBoardOnTick(palito));
+
+      String[] expectedBoard7 = {   "0000000000",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000010000", 
+                                    "0000010000",
+                                    "0000010000",
+                                    "0000010000"};
+                                    
+      assertArrayEquals(expectedBoard7, b2.updateBoardOnTick(palito));
+      assertArrayEquals(expectedBoard7, b2.updateBoardOnTick(palito)); // Aca veo que no me devuelva error, ya que no puede bajar más
     }
 }
