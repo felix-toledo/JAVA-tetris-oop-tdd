@@ -11,7 +11,6 @@ import tetris.ucp.pieces.PieceT;
 public class TetrisTest 
 {
     @Test
-    
     public void checkStick()
     {
         PieceStick palo = new PieceStick();

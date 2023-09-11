@@ -5,7 +5,7 @@ import Interfaces.IRotator;
 public class PieceBase implements IRotator{
      protected int actualPos;
      protected String [] figure;
-     protected int [] posInBoard = {0, 0};
+     protected int [] posInBoard = {0, 0, actualPos};
 
      public String rotateRight(){
           actualPos++;

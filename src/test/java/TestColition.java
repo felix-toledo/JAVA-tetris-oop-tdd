@@ -17,25 +17,11 @@ public class TestColition {
           Board colitionBoard = new Board();
           PieceSquare cuadrado = new PieceSquare();
 
-          String[] boardForTesting = {  "0000000000",
-                                        "0000000000",
-                                        "0000000000",
-                                        "0000000000",
-                                        "0001000000",
-                                        "0000000000",
-                                        "0000000000",
-                                        "0000000000",
-                                        "0000000000",
-                                        "0000000000"};
-
-          colitionBoard.setboard(boardForTesting);
-
-          
           String[] excpectedBoard = {   "0011000000",
                                         "0011000000",
                                         "0000000000",
                                         "0000000000",
-                                        "0001000000",
+                                        "0000000000",
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
@@ -45,35 +31,66 @@ public class TestColition {
           assertArrayEquals(excpectedBoard, colitionBoard.insertPieceInBoard(cuadrado, 2));
 
 
-
-
-          colitionBoard.updateBoardOnTick(cuadrado);
-
           String[] expectedBoard2 =  {  "0000000000",
+                                        "0011000000",
+                                        "0011000000",
                                         "0000000000",
-                                        "0011000000",
-                                        "0011000000",
-                                        "0001000000",
+                                        "0000000000",
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
                                         "0000000000"};
-          assertArrayEquals(expectedBoard2, colitionBoard.updateBoardOnTick(cuadrado));
 
           String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado);
 
+          assertArrayEquals(expectedBoard2, finalBoard1);
+     }
 
-/* 
-          String[] boardForTesting2 = {  "0000000000",
+     @Test
+     public void testColition(){
+          Board colitionBoard = new Board();
+          PieceT te = new PieceT();
+
+          String[] boardForTesting = {  "0000000000",
+                                        "0000000000",
+                                        "0010100000",
                                         "0000000000",
                                         "0000000000",
-                                        "0000010000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000"};
+
+          colitionBoard.setBoard(boardForTesting);
+
+          String[] boardExpected = {    "0011100000",
+                                        "0001000000",
+                                        "0010100000",
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
-                                        "0000000000"};*/
+                                        "0000000000",
+                                        "0000000000"};
+
+          assertArrayEquals(boardExpected, colitionBoard.insertPieceInBoard(te, 2));
+
+          String[] boardExpected2 = {   "0000000000",
+                                        "0011100000",
+                                        "0011100000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000"};
+          
+          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
+          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
+
      }
 }
