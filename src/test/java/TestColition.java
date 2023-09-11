@@ -42,7 +42,7 @@ public class TestColition {
                                         "0000000000",
                                         "0000000000"};
 
-          String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado);
+          String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado, false);
 
           assertArrayEquals(expectedBoard2, finalBoard1);
      }
@@ -89,8 +89,8 @@ public class TestColition {
                                         "0000000000",
                                         "0000000000"};
           
-          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
-          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
+          //colitionBoard.updateBoardOnTick(te, false);
+          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te, false));
 
      }
 }

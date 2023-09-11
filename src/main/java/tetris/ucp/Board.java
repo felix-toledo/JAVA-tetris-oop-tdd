@@ -36,7 +36,6 @@ public class Board {
                     updatedLine.setCharAt(i, '0');
                }
           }
-          System.out.println("devuelve: " + updatedLine.toString());
           return updatedLine.toString();
      }
 
@@ -66,7 +65,6 @@ public class Board {
           
           StringBuilder lineOfTheBoard = new StringBuilder(board[lineToUpdate]); //extraigo la linea del tablero.
           String lineOfThePieceToInsert = pieceToInsert.showPiece().substring((lineInPieceToActualize*4)-4, (lineInPieceToActualize*4));//extraigo la linea de la pieza
-          System.out.println(lineOfThePieceToInsert);
           String charactersToInsert = compareCharacters(lineOfTheBoard, lineOfThePieceToInsert, pieceToInsert, positionToInsert, lineInPieceToActualize);
 
           if (charactersToInsert == "false"){
@@ -75,16 +73,23 @@ public class Board {
 
           lineOfTheBoard.replace(positionToInsert, positionToInsert + charactersToInsert.length(), charactersToInsert); //agrego la linea de la pieza en la posición deseada
           String lineUpdated = lineOfTheBoard.toString();
-
-          System.out.println(lineUpdated);
           return lineUpdated; // devuelvo la linea actualizada
      }
 
-     public String[] updateBoardOnTick(PieceBase pieceToUpdate){
+     public String[] updateBoardOnTick(PieceBase pieceToUpdate, boolean isInserting){
           int[] actualPosition = pieceToUpdate.getPosInBoard();
-          
+          String[] newBoard = board.clone();
+
+          if(isInserting){
+              for (int i = 3; i > -1; i--) {
+               board[actualPosition[1] + i] = lineUpdate(actualPosition[1] + i, pieceToUpdate, actualPosition[0], i+1);
+               System.out.println(board[actualPosition[1] + i]);  
+               } 
+               return board;
+          }
+
           for (int i = 3; i > -1; i--) {
-               board[actualPosition[1] + i] = deleteActualPieceGoingDown(actualPosition[1] + i, pieceToUpdate, actualPosition[0], i+1);
+               newBoard[actualPosition[1] + i] = deleteActualPieceGoingDown(actualPosition[1] + i, pieceToUpdate, actualPosition[0], i+1);
           }
 
           for (int i = 3; i > -1; i--) {
@@ -92,12 +97,13 @@ public class Board {
                if(lineToUpdate == "false"){
                     return board;
                } else {
-                    board[actualPosition[1] + i + 1] = lineToUpdate;
+                    newBoard[actualPosition[1] + i + 1] = lineToUpdate;
                }
           }
      
           pieceToUpdate.setActualPos(actualPosition[0], actualPosition[1]+1);
           
+          board = newBoard.clone();
           return board;
      }
      

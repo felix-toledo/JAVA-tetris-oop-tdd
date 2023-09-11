@@ -38,7 +38,7 @@ public class TestInsertPiece
                              "0000000000",
                              "0000000000"};
 
-     assertArrayEquals(expected2, b1.updateBoardOnTick(cuadrado)); 
+     assertArrayEquals(expected2, b1.updateBoardOnTick(cuadrado, false)); 
 
      String [] expected3 = { "0000000000",
                              "0000000000",
@@ -51,7 +51,7 @@ public class TestInsertPiece
                              "0000000000",
                              "0000000000"};
 
-     assertArrayEquals(expected3, b1.updateBoardOnTick(cuadrado)); 
+     assertArrayEquals(expected3, b1.updateBoardOnTick(cuadrado, false)); 
     }
 
     @Test
@@ -107,7 +107,7 @@ public class TestInsertPiece
                                         "0000000000",
                                         "0000000000"};
 
-          assertArrayEquals(newExpected, b1.updateBoardOnTick(perritoDerecho));
+          assertArrayEquals(newExpected, b1.updateBoardOnTick(perritoDerecho, false));
 
           String [] newExpected1 = {    "0000000000",
                                         "0000000000",
@@ -120,7 +120,7 @@ public class TestInsertPiece
                                         "0000000000",
                                         "0000000000"};
 
-          assertArrayEquals(newExpected1, b1.updateBoardOnTick(perritoDerecho));
+          assertArrayEquals(newExpected1, b1.updateBoardOnTick(perritoDerecho, false));
 
           String [] newExpected2 = {    "0000000000",
                                         "0000000000",
@@ -133,7 +133,7 @@ public class TestInsertPiece
                                         "0000000000",
                                         "0000000000"};
 
-          assertArrayEquals(newExpected2, b1.updateBoardOnTick(perritoDerecho));
+          assertArrayEquals(newExpected2, b1.updateBoardOnTick(perritoDerecho, false));
     }
 
     @Test
