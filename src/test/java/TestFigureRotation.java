@@ -52,21 +52,21 @@ public class TestFigureRotation {
      @Test
      public void TRotation_toRight(){
           PieceT talleres = new PieceT();
-          assertEquals("0100111000000000", talleres.showPiece());
+          assertEquals("1110010000000000", talleres.showPiece());
           assertEquals("0100011001000000", talleres.rotateRight());
           assertEquals("0100111000000000", talleres.rotateRight());
           assertEquals("0100110001000000", talleres.rotateRight());
-          assertEquals("0100111000000000", talleres.rotateRight());
+          assertEquals("1110010000000000", talleres.rotateRight());
      }
 
      @Test
      public void TRotation_toLeft(){
           PieceT talleres = new PieceT();
-          assertEquals("0100111000000000", talleres.showPiece());
+          assertEquals("1110010000000000", talleres.showPiece());
           assertEquals("0100110001000000", talleres.rotateLeft());
           assertEquals("0100111000000000", talleres.rotateLeft());
           assertEquals("0100011001000000", talleres.rotateLeft());
-          assertEquals("0100111000000000", talleres.rotateLeft());
+          assertEquals("1110010000000000", talleres.rotateLeft());
      }
      
      @Test

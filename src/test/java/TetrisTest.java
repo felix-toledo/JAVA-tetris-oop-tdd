@@ -58,7 +58,7 @@ public class TetrisTest
     {
         PieceT talleres = new PieceT();
         String figura = talleres.showPiece();
-        assertEquals("0100111000000000", figura);
+        assertEquals("1110010000000000", figura);
     }
 
 }

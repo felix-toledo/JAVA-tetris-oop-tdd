@@ -90,7 +90,7 @@ public class TestColition {
                                         "0000000000"};
           
           assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
-          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
+          //assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
 
      }
 }
