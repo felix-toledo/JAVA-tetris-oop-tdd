@@ -17,6 +17,12 @@ public class Board {
                                    "0000000000",
                                    "0000000000"};
 
+     public PieceBase currentPiece;
+
+     public void setCurrentPiece(PieceBase currentPiece) {
+          this.currentPiece = currentPiece;
+     }
+
      private boolean game = true;
      
      public void setBoard(String[] boardcito){ // JUST FOR TESTING PURPOSE
@@ -73,7 +79,6 @@ public class Board {
           }
           char characterOfBoard = lineOfTheBoard.charAt(i);
           if (lineToUpdate == 0 && lineInPieceToActualize != 1){
-               System.out.println(lineToUpdate+ " " + lineInPieceToActualize);
                game = false;
                break; 
           }
@@ -94,6 +99,7 @@ public class Board {
      //Funcion que me va a servir para actualizar una linea del tablero con UNA LINEA de la pieza.
      public String lineUpdate(int lineToUpdate, PieceBase pieceToInsert, int positionToInsert, int lineInPieceToActualize){
           StringBuilder lineOfTheBoard = new StringBuilder(board[lineToUpdate]); //extraigo la linea del tablero.
+          System.out.println(lineOfTheBoard);
           String lineOfThePieceToInsert = pieceToInsert.showPiece().substring((lineInPieceToActualize*4)-4, (lineInPieceToActualize*4));//extraigo la linea de la pieza
           String charactersToInsert = compareCharacters(lineOfTheBoard, lineOfThePieceToInsert, pieceToInsert, positionToInsert, lineInPieceToActualize, lineToUpdate);
 
@@ -111,19 +117,31 @@ public class Board {
           String [] newBoard = getBoard().clone();
           
           int[] actualPosition = pieceToUpdate.getPosInBoard();
-
+          int lineOfBoardToDelete;
           for (int i = 3; i > -1; i--) {
-               board[actualPosition[1] + i] = deleteActualPieceGoingDown(actualPosition[1] + i, pieceToUpdate, actualPosition[0], i+1);
+               
+                    if(actualPosition[1] + i > 9){
+                         lineOfBoardToDelete = 9;
+                    } else {
+                         lineOfBoardToDelete = actualPosition[1] + i;
+                    }
+               board[lineOfBoardToDelete] = deleteActualPieceGoingDown(lineOfBoardToDelete, pieceToUpdate, actualPosition[0], i+1);
           }
 
           for (int i = 3; i > -1; i--) {
-               
-               String lineToUpdate = lineUpdate(actualPosition[1] + i+1, pieceToUpdate, actualPosition[0], i+1);
-               if(lineToUpdate.equals("false")){ // Use .equals() to compare strings
+               int lineOfBoard;
+                    if(actualPosition[1] + i + 1 > 9){
+                         lineOfBoard = 9;
+                    } else {
+                         lineOfBoard = actualPosition[1] + i + 1;
+                    }
+               String lineToUpdate = lineUpdate(lineOfBoard, pieceToUpdate, actualPosition[0], i+1);
+               System.out.println(lineToUpdate);
+               if(lineToUpdate.equals("false")){ 
                     board = newBoard.clone();
                     return board;
                } else {
-                    board[actualPosition[1] + i + 1] = lineToUpdate;
+                    board[lineOfBoard] = lineToUpdate;
                }
           }
      

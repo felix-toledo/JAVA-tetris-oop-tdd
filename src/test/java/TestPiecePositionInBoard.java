@@ -80,6 +80,13 @@ public class TestPiecePositionInBoard {
           colitionBoard.updateBoardOnTick(cuadrado);
           colitionBoard.updateBoardOnTick(cuadrado);
           colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado);
           String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado);
           assertArrayEquals(expectedBoard2, finalBoard1);
      }
