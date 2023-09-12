@@ -2,6 +2,11 @@ package tetris.ucp;
 import java.util.Random;
 
 import tetris.ucp.pieces.PieceBase;
+import tetris.ucp.pieces.PieceDog;
+import tetris.ucp.pieces.PieceL;
+import tetris.ucp.pieces.PieceSquare;
+import tetris.ucp.pieces.PieceStick;
+import tetris.ucp.pieces.PieceT;
 
 
 public class Board {
@@ -17,13 +22,54 @@ public class Board {
                                    "0000000000",
                                    "0000000000"};
 
-     public PieceBase currentPiece;
+     public PieceBase giveRandomPiece(){
+          Random rand = new Random();
+          int randomNumber = rand.nextInt(7) + 1;
+          
+          switch(randomNumber) {
+               case 1:
+                    PieceDog dogRight = new PieceDog(true);
+                    return dogRight;
+               case 2:
+                    PieceDog dogLeft = new PieceDog(false);
+                    return dogLeft;
+               case 3:
+                    PieceSquare square = new PieceSquare();
+                    return square;
+               case 4:
+                    PieceStick stick = new PieceStick();
+                    return stick;
+               case 5:
+                    PieceT t = new PieceT();
+                    return t;
+               case 6:
+                    PieceL lRight = new PieceL(true);
+                    return lRight;
+               case 7:
+                    PieceL lLeft = new PieceL(false);
+                    return lLeft;
+               default:
+                    return new PieceSquare(); 
+     }
+          }
 
-     public void setCurrentPiece(PieceBase currentPiece) {
-          this.currentPiece = currentPiece;
+    public PieceBase currentPiece;
+    private int score;
+     
+
+     public int getScore() {
+          return score;
      }
 
-     private boolean game = true;
+     public void setScore(){
+          this.score = score + 1;
+     }
+
+     public void setCurrentPiece() {
+          this.currentPiece = giveRandomPiece();
+     }
+
+     public boolean game = true;
      
      public void setBoard(String[] boardcito){ // JUST FOR TESTING PURPOSE
           board = boardcito;
@@ -39,11 +85,11 @@ public class Board {
           }
           for (int i = 0; i < board.length; i++) {
                if (board[i].equals("1111111111")) {
+                    setScore();
                     for (int j = i; j > 0; j--) {
                          board[j] = board[j - 1];
                     }
                     board[0] = "0000000000";
-                    return true;
                }
           }
           if (board[0].contains("1")) {
@@ -113,6 +159,10 @@ public class Board {
           return lineUpdated; // devuelvo la linea actualizada
      }
 
+
+     public String[] updateBoardOnTick(){
+          return updateBoardOnTick(currentPiece);
+     }
      public String[] updateBoardOnTick(PieceBase pieceToUpdate){
           String [] newBoard = getBoard().clone();
           
@@ -147,17 +197,20 @@ public class Board {
      
           pieceToUpdate.setActualPos(actualPosition[0], actualPosition[1]+1);
           
+          checkBoard();
           return board;
      }
      
-     public String[] insertPieceInBoard(PieceBase piece){
+     public String[] insertPieceInBoard(){
+          setCurrentPiece();
           Random rand = new Random();
           int randomNum = rand.nextInt(10);
           
-          return insertPieceInBoard(piece, randomNum);
+          return insertPieceInBoard(currentPiece, randomNum);
      }
 
      public String[] insertPieceInBoard(PieceBase piece, int position){
+          checkBoard();
 
           for (int i = 3; i > -1; i--) {
                board[i] = lineUpdate(i, piece, position, i + 1);

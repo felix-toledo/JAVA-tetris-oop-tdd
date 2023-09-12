@@ -28,7 +28,7 @@ public class TestFullLine {
 
         tablero.setBoard(tableroNuevo);
 
-        tablero.checkLineByLineComplete();
+        tablero.checkBoard();
         
         String[] expectedTablero = {    "0000000000",
                                         "0000000000",
@@ -42,5 +42,38 @@ public class TestFullLine {
                                         "0011000000"};
 
         assertArrayEquals(expectedTablero, tablero.getBoard());
+    }
+
+    @Test
+    public void check_if_win(){
+        Board tablero = new Board();
+        String[] tableroNuevo = {   "0000000000",
+                                    "0000000000",
+                                    "0000000000", 
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000",
+                                    "0000000000",
+                                    "1111111111"};
+
+        String[] tableroNuevo2 = tableroNuevo.clone();   
+        String[] tableroNuevo3 = tableroNuevo.clone(); 
+        String[] tableroNuevo4 = tableroNuevo.clone(); 
+        String[] tableroNuevo5 = tableroNuevo.clone();    
+
+        tablero.setBoard(tableroNuevo);
+        tablero.checkBoard();
+        tablero.setBoard(tableroNuevo2);
+        tablero.checkBoard();
+        tablero.setBoard(tableroNuevo3);
+        tablero.checkBoard();
+        tablero.setBoard(tableroNuevo4);
+        tablero.checkBoard();
+        tablero.setBoard(tableroNuevo5);
+        tablero.checkBoard();
+
+        assertEquals(5, tablero.getScore());
     }
 }
