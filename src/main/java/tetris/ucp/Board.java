@@ -22,10 +22,14 @@ public class Board {
           board = boardcito;
      }
 
-     public String deleteActualPieceGoingDown(int lineToUpdate, PieceBase pieceToInsert, int positionToInsert, int lineInPieceToActualize){
+     public String [] getBoard(){
+          return board;
+     }
 
+     public String deleteActualPieceGoingDown(int lineToUpdate, PieceBase pieceToInsert, int positionToInsert, int lineInPieceToActualize){
+          int[] actualPosition = pieceToInsert.getPosInBoard();
           StringBuilder lineOfTheBoard = new StringBuilder(board[lineToUpdate]); //extraigo la linea del tablero.
-          String lineOfThePieceToInsert = pieceToInsert.showPiece().substring((lineInPieceToActualize*4)-4, (lineInPieceToActualize*4));//extraigo la linea de la pieza
+          String lineOfThePieceToInsert = pieceToInsert.showPieceInPosition(actualPosition[2]).substring((lineInPieceToActualize*4)-4, (lineInPieceToActualize*4));//extraigo la linea de la pieza
      
           StringBuilder updatedLine = new StringBuilder(lineOfTheBoard);
           for (int i = positionToInsert; i < positionToInsert + 4; i++) {
@@ -36,60 +40,63 @@ public class Board {
                     updatedLine.setCharAt(i, '0');
                }
           }
-          System.out.println("devuelve: " + updatedLine.toString());
           return updatedLine.toString();
      }
 
-     public String compareCharacters(StringBuilder lineOfTheBoard, String lineOfThePieceToInsert, PieceBase pieceToInsert, int positionToInsert, int lineInPieceToActualize){
-          StringBuilder newStringForLine= new StringBuilder();
-          for (int i = positionToInsert; i < positionToInsert + 4; i++ ){
-               int pieceXPosition = i-positionToInsert;
-               char characterOfPiece = lineOfThePieceToInsert.charAt(pieceXPosition);
-               char characterOfBoard = lineOfTheBoard.charAt(i);
-               
-               if (characterOfPiece == "1".charAt(0) && characterOfBoard == "1".charAt(0)){
-                    return "false";
-               } else if (characterOfBoard != characterOfPiece){
-                    newStringForLine.append("1").toString();
-               } else{
-                    newStringForLine.append("0").toString();
-               }
+    public String compareCharacters(StringBuilder lineOfTheBoard, String lineOfThePieceToInsert, PieceBase pieceToInsert, int positionToInsert, int lineInPieceToActualize){
+     StringBuilder newStringForLine= new StringBuilder();
+     for (int i = positionToInsert; i < positionToInsert + 4; i++ ){
+          int pieceXPosition = i-positionToInsert;
+          char characterOfPiece = lineOfThePieceToInsert.charAt(pieceXPosition);
+          char characterOfBoard = lineOfTheBoard.charAt(i);
+          
+          if (characterOfPiece == "1".charAt(0) && characterOfBoard == "1".charAt(0)){
+               System.out.println("falso en " + i);
+               System.out.println(lineOfThePieceToInsert);
+               System.out.println(lineOfTheBoard);
+               return "false";
+          } else if (characterOfBoard != characterOfPiece){
+               newStringForLine.append("1");
+          } else {
+               newStringForLine.append("0");
           }
-
-          return newStringForLine.toString();
      }
+
+     return newStringForLine.toString();
+}
 
      
 
      //Funcion que me va a servir para actualizar una linea del tablero con UNA LINEA de la pieza.
      public String lineUpdate(int lineToUpdate, PieceBase pieceToInsert, int positionToInsert, int lineInPieceToActualize){
-          
+               
           StringBuilder lineOfTheBoard = new StringBuilder(board[lineToUpdate]); //extraigo la linea del tablero.
           String lineOfThePieceToInsert = pieceToInsert.showPiece().substring((lineInPieceToActualize*4)-4, (lineInPieceToActualize*4));//extraigo la linea de la pieza
-          System.out.println(lineOfThePieceToInsert);
           String charactersToInsert = compareCharacters(lineOfTheBoard, lineOfThePieceToInsert, pieceToInsert, positionToInsert, lineInPieceToActualize);
 
-          if (charactersToInsert == "false"){
+          if (charactersToInsert.equals("false")){ // Use .equals() to compare strings
                return "false";
           }
 
           lineOfTheBoard.replace(positionToInsert, positionToInsert + charactersToInsert.length(), charactersToInsert); //agrego la linea de la pieza en la posición deseada
           String lineUpdated = lineOfTheBoard.toString();
 
-          System.out.println(lineUpdated);
           return lineUpdated; // devuelvo la linea actualizada
      }
 
      public String[] updateBoardOnTick(PieceBase pieceToUpdate){
-          int[] actualPosition = pieceToUpdate.getPosInBoard();
+          String [] newBoard = getBoard().clone();
           
+          int[] actualPosition = pieceToUpdate.getPosInBoard();
+
           for (int i = 3; i > -1; i--) {
                board[actualPosition[1] + i] = deleteActualPieceGoingDown(actualPosition[1] + i, pieceToUpdate, actualPosition[0], i+1);
           }
 
           for (int i = 3; i > -1; i--) {
                String lineToUpdate = lineUpdate(actualPosition[1] + i + 1, pieceToUpdate, actualPosition[0], i+1);
-               if(lineToUpdate == "false"){
+               if(lineToUpdate.equals("false")){ // Use .equals() to compare strings
+                    board = newBoard.clone();
                     return board;
                } else {
                     board[actualPosition[1] + i + 1] = lineToUpdate;

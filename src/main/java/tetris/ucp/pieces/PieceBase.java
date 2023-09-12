@@ -26,10 +26,15 @@ public class PieceBase implements IRotator{
      public void setActualPos(int x, int y){
           posInBoard[0] = x;
           posInBoard[1] = y;
+          posInBoard[2] = actualPos;
      }
 
      public int [] getPosInBoard(){
           return posInBoard;
+     }
+
+     public String showPieceInPosition(int position){
+          return (figure[position]);
      }
 
      public String showPiece(){

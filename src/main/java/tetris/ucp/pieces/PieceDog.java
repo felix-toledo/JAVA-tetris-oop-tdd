@@ -18,4 +18,13 @@ public class PieceDog extends PieceBase{
                return(left[actualPos]);
           }
      }
+
+     @Override
+     public String showPieceInPosition(int position){
+          if (isRight){
+               return(right[position]);
+          } else {
+               return(left[position]);
+          }
+     }
 }
