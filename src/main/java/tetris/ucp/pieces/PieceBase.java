@@ -37,6 +37,10 @@ public class PieceBase implements IRotator{
           return (figure[position]);
      }
 
+     public void setPosition(int position){
+          actualPos = position;
+     }
+
      public String showPiece(){
         return (figure[actualPos]);    
      }
