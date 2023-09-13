@@ -10,8 +10,8 @@ There are a few key considerations that I have to keep in mind for next problems
 
 ## Deployment and Repository
 
-You can access the project's repository [here](https://github.com/felix-toledo/tetris-oop-tdd).
-The deployed results of the project can be found [here](https://felix-toledo.github.io/tetris-oop-tdd/).
+You can access the project's repository [here](https://github.com/felix-toledo/JAVA-tetris-oop-tdd).
+The deployed results of the project can be found [here](https://felix-toledo.github.io/JAVA-tetris-oop-tdd/).
 
 
 ## Testing and Running the Java Code
