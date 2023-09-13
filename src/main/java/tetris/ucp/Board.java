@@ -153,6 +153,7 @@ public class Board {
                break;
           }
           char characterOfBoard = lineOfTheBoard.charAt(i);
+          System.out.println(pieceToInsert.getPiece());
           if (lineToUpdate == 0 && lineInPieceToActualize != 1){
                game = false;
                break; 
