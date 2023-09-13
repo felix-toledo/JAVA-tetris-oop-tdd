@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PieceL.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Tetris</a> &gt; <a href="index.source.html" class="el_package">tetris.ucp.pieces</a> &gt; <span class="el_source">PieceL.java</span></div><h1>PieceL.java</h1><pre class="source lang-java linenums">package tetris.ucp.pieces;
+
+
+public class PieceL extends PieceBase{
+     boolean isRight;
+
+<span class="fc" id="L7">     private String [] right = {&quot;1000100011000000&quot;, &quot;0010111000000000&quot;, &quot;1100010001000000&quot;, &quot;0000111010000000&quot;};</span>
+<span class="fc" id="L8">     private String [] left = {&quot;0100010011000000&quot;, &quot;0100011100000000&quot;, &quot;0011001000100000&quot;, &quot;0000011100010000&quot;};</span>
+
+<span class="fc" id="L10">     public PieceL(boolean isRightAnswer){</span>
+<span class="fc" id="L11">          this.isRight = isRightAnswer;</span>
+<span class="fc" id="L12">     }</span>
+     
+     @Override
+     public String getPiece(){
+<span class="fc bfc" id="L16" title="All 2 branches covered.">          if (isRight){</span>
+<span class="fc" id="L17">               return(right[getActualPos()]);</span>
+          } else {
+<span class="fc" id="L19">               return(left[getActualPos()]);</span>
+          }
+     }
+
+     @Override
+     public String showPieceInPosition(int position){
+<span class="fc bfc" id="L25" title="All 2 branches covered.">          if (isRight){</span>
+<span class="fc" id="L26">               return(right[position]);</span>
+          } else {
+<span class="fc" id="L28">               return(left[position]);</span>
+          }
+     }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

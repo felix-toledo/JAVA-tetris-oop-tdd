@@ -1,7 +1,5 @@
 package tetris.ucp;
 
-import tetris.ucp.pieces.PieceBase;
-
 public class Clock {
      //DIAGRAMA UML
      public void tick(){

@@ -2,8 +2,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import tetris.ucp.Board;
+import tetris.ucp.*;
 import tetris.ucp.pieces.*;
+
+import tetris.ucp.Tetris;
+
 
 
 public class TetrisTest {
@@ -186,5 +189,33 @@ public class TetrisTest {
           assertArrayEquals(expected2, finalBoard2);
           assertTrue(tablero.checkWinning());
 
+     }
+
+     @Test
+     public void tetrisTest(){
+          Tetris juego = new Tetris();
+          juego.start();
+
+          String [] boardGame = juego.board.getBoard();     
+
+          assertNotNull(boardGame);
+
+          juego.tick();
+
+          assertEquals(true, juego.board.getBoard()[1].contains("1"));
+
+          juego.rotateRight();
+          assertNotNull(juego.board.currentPiece.getPiece());
+     
+          juego.rotateLeft();
+          assertNotNull(juego.board.currentPiece.getPiece());
+     }
+
+     @Test
+     public void clockTest(){
+          Clock reloj = new Clock();
+          assertEquals(0, reloj.getTimer());
+          reloj.tick();
+          assertEquals(1, reloj.getTimer());
      }
 }

@@ -1,0 +1,10 @@
+tetris\ucp\Board.class
+tetris\ucp\pieces\PieceSquare.class
+tetris\ucp\pieces\PieceStick.class
+tetris\ucp\pieces\PieceT.class
+Interfaces\IRotator.class
+tetris\ucp\Clock.class
+tetris\ucp\Tetris.class
+tetris\ucp\pieces\PieceBase.class
+tetris\ucp\pieces\PieceDog.class
+tetris\ucp\pieces\PieceL.class
