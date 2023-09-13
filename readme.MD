@@ -7,13 +7,6 @@ There are a few key considerations that I have to keep in mind for next problems
 - Minimize the use of parameters in functions to maintain simplicity and readability.
 - The most challenging aspect was fitting the pieces into some others that had the spaces. However, with time and persistence, I was able to find an efficient solution.
 
-
-## Deployment and Repository
-
-You can access the project's repository [here](https://github.com/felix-toledo/JAVA-tetris-oop-tdd).
-The deployed results of the project can be found [here](https://felix-toledo.github.io/JAVA-tetris-oop-tdd/).
-
-
 ## Testing and Running the Java Code
 
 1. Navigate to the `/src/main/java` directory to view the Java code.
@@ -22,3 +15,15 @@ The deployed results of the project can be found [here](https://felix-toledo.git
 4. To compile and run the Java code, use the command `mvn compile exec:java` in the terminal.
 
 For more information on how to use Java and Java tests in Visual Studio Code, please refer to this [guide](https://code.visualstudio.com/docs/java/java-tutorial).
+
+
+## Deployment and Repository
+
+- You can access the project's repository [here](https://github.com/felix-toledo/JAVA-tetris-oop-tdd).
+- The deployed results of the project can be found [here](https://felix-toledo.github.io/JAVA-tetris-oop-tdd/).
+
+![Screenshot](screenshot.jpg)
+
+
+
+
