@@ -10,8 +10,8 @@ There are a few key considerations that I have to keep in mind for next problems
 
 ## Deployment and Repository
 
-You can access the project's repository [here](https://github.com/felix-toledo/JAVA-tetris-oop-tdd).
-The deployed results of the project can be found [here](https://felix-toledo.github.io/JAVA-tetris-oop-tdd/).
+- You can access the project's repository [here](https://github.com/felix-toledo/JAVA-tetris-oop-tdd).
+- The deployed results of the project can be found [here](https://felix-toledo.github.io/JAVA-tetris-oop-tdd/).
 
 
 ## Testing and Running the Java Code
@@ -22,3 +22,4 @@ The deployed results of the project can be found [here](https://felix-toledo.git
 4. To compile and run the Java code, use the command `mvn compile exec:java` in the terminal.
 
 For more information on how to use Java and Java tests in Visual Studio Code, please refer to this [guide](https://code.visualstudio.com/docs/java/java-tutorial).
+![Screenshot](screenshot.jpg)
