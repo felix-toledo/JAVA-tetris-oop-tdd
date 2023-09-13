@@ -11,7 +11,7 @@ public class Tetris {
      }
 
      public boolean state(){
-          return board.game;
+          return board.checkWinning();
      }
 
      public void rotateLeft(){
@@ -25,5 +25,11 @@ public class Tetris {
      public void tick(){
           clock.setTimer();
           board.updateBoardOnTick();
+          if(!board.checkBoard()){
+               System.out.println("Has perdido!");
+          }
+          if(state()){
+               System.out.println("Has ganado!");
+          }
      }
 }

@@ -47,12 +47,12 @@ public class TestPiecePositionInBoard {
                                         "0000000000"};
 
           colitionBoard.insertPieceInBoard(cuadrado, 1);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado, true);
           assertArrayEquals(expectedBoard2, finalBoard1);
      }
 
@@ -73,21 +73,21 @@ public class TestPiecePositionInBoard {
                                         "0110000000"};
 
           colitionBoard.insertPieceInBoard(cuadrado, 1);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          colitionBoard.updateBoardOnTick(cuadrado);
-          String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          colitionBoard.updateBoardOnTick(cuadrado, true);
+          String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado, true);
           assertArrayEquals(expectedBoard2, finalBoard1);
      }
 
@@ -133,8 +133,8 @@ public class TestPiecePositionInBoard {
                                         "0000000000",
                                         "0000000000"};
           
-          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
+          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te, true));
 
-          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te));
+          assertArrayEquals(boardExpected2, colitionBoard.updateBoardOnTick(te, true));
      }
 }

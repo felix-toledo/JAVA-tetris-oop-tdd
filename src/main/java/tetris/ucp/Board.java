@@ -79,6 +79,14 @@ public class Board {
           return board;
      }
      
+     public boolean checkWinning(){
+          if(score == 5){
+               return true;
+          }else {
+               return false;
+          }
+     }
+
      public boolean checkBoard(){
           if(!game){
                return false;
@@ -161,9 +169,9 @@ public class Board {
 
 
      public String[] updateBoardOnTick(){
-          return updateBoardOnTick(currentPiece);
+          return updateBoardOnTick(currentPiece, false);
      }
-     public String[] updateBoardOnTick(PieceBase pieceToUpdate){
+     public String[] updateBoardOnTick(PieceBase pieceToUpdate, boolean isTesting){
           String [] newBoard = getBoard().clone();
           
           int[] actualPosition = pieceToUpdate.getPosInBoard();
@@ -189,6 +197,9 @@ public class Board {
                System.out.println(lineToUpdate);
                if(lineToUpdate.equals("false")){ 
                     board = newBoard.clone();
+                    if(!isTesting){
+                         insertPieceInBoard();
+                    }
                     return board;
                } else {
                     board[lineOfBoard] = lineToUpdate;
@@ -197,7 +208,6 @@ public class Board {
      
           pieceToUpdate.setActualPos(actualPosition[0], actualPosition[1]+1);
           
-          checkBoard();
           return board;
      }
      
@@ -211,6 +221,7 @@ public class Board {
 
      public String[] insertPieceInBoard(PieceBase piece, int position){
           checkBoard();
+          currentPiece = piece;
 
           for (int i = 3; i > -1; i--) {
                board[i] = lineUpdate(i, piece, position, i + 1);
