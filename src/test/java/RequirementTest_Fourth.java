@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import tetris.ucp.Board;
-import tetris.ucp.pieces.PieceSquare;
 import tetris.ucp.pieces.PieceStick;
 
 public class RequirementTest_Fourth {

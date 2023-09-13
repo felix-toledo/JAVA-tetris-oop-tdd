@@ -2,11 +2,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import tetris.ucp.pieces.PieceDog;
 import tetris.ucp.pieces.PieceT;
-import tetris.ucp.pieces.PieceL;
 import tetris.ucp.pieces.PieceSquare;
-import tetris.ucp.pieces.PieceStick;
 import tetris.ucp.Board;
 
 

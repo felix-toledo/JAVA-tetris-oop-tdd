@@ -5,7 +5,6 @@ import org.junit.Test;
 import tetris.ucp.Board;
 import tetris.ucp.pieces.PieceDog;
 import tetris.ucp.pieces.PieceSquare;
-import tetris.ucp.pieces.PieceStick;
 
 public class TestInsertPiece 
 {
