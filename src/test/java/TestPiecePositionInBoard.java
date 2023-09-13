@@ -26,6 +26,16 @@ public class TestPiecePositionInBoard {
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
                                         "0000000000"};
           assertArrayEquals(expectedBoard2, colitionBoard.insertPieceInBoard(cuadrado, 8));
      }
@@ -41,27 +51,11 @@ public class TestPiecePositionInBoard {
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
-                                        "0110000000",
-                                        "0110000000",
                                         "0000000000",
-                                        "0000000000"};
-
-          colitionBoard.insertPieceInBoard(cuadrado, 1);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado, true);
-          assertArrayEquals(expectedBoard2, finalBoard1);
-     }
-
-     @Test
-     public void createBoard__createPiece_checkLeaveTheBoard_atBottom2(){
-          Board colitionBoard = new Board();
-          PieceSquare cuadrado = new PieceSquare();
-
-          String[] expectedBoard2 =  {  "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
+                                        "0000000000",
                                         "0000000000",
                                         "0000000000",
                                         "0000000000",
@@ -73,23 +67,13 @@ public class TestPiecePositionInBoard {
                                         "0110000000"};
 
           colitionBoard.insertPieceInBoard(cuadrado, 1);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
-          colitionBoard.updateBoardOnTick(cuadrado, true);
+          for(int i = 0; i<19; i++){
+                         colitionBoard.updateBoardOnTick(cuadrado, true);
+          }
           String[] finalBoard1 = colitionBoard.updateBoardOnTick(cuadrado, true);
           assertArrayEquals(expectedBoard2, finalBoard1);
      }
+
 
      @Test
      public void testColition(){

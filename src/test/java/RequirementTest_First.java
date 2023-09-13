@@ -1,4 +1,4 @@
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import tetris.ucp.pieces.PieceStick;
 import tetris.ucp.pieces.PieceSquare;
 import tetris.ucp.pieces.PieceT;
 
-public class PiecesTest 
+public class RequirementTest_First 
 {
     @Test
     public void checkStick()

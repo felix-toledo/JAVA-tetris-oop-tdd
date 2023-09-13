@@ -1,12 +1,13 @@
 package tetris.ucp;
 
 public class Tetris {
+     //TETRIS BASADO EN EL DIAGRAMA UML
      public Board board = new Board();
      public Clock clock = new Clock();
           
 
      public void start(){
-          clock.setTimer();
+          clock.tick();
           board.insertPieceInBoard();
      }
 
@@ -23,11 +24,8 @@ public class Tetris {
      }
 
      public void tick(){
-          clock.setTimer();
+          clock.tick();
           board.updateBoardOnTick();
-          if(!board.checkBoard()){
-               System.out.println("Has perdido!");
-          }
           if(state()){
                System.out.println("Has ganado!");
           }

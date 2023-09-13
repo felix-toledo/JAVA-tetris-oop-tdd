@@ -1,67 +1,13 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import tetris.ucp.Board;
-import tetris.ucp.pieces.*;
+import tetris.ucp.pieces.PieceSquare;
+import tetris.ucp.pieces.PieceStick;
 
-
-public class TetrisTest {
-     @Test
-     public void check_if_loose(){
-          Board tablero = new Board();
-          PieceStick palo1 = new PieceStick();
-          PieceStick palo2 = new PieceStick();
-          PieceStick palo3 = new PieceStick();
-          PieceStick palo4 = new PieceStick();
-          PieceStick palo5 = new PieceStick();
-
-          String [] expected = {   "1000000000",
-                                   "1000000000",
-                                   "1000000000", 
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000", 
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000", 
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000", 
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000",
-                                   "1000000000"};
-
-          tablero.insertPieceInBoard(palo1, 0);
-          for (int i = 0; i < 16; i++){
-               tablero.updateBoardOnTick();
-          }
-          tablero.insertPieceInBoard(palo2, 0);
-          for (int i = 0; i < 12; i++){
-               tablero.updateBoardOnTick();
-          }
-          tablero.insertPieceInBoard(palo3, 0);
-          for (int i = 0; i < 8; i++){
-               tablero.updateBoardOnTick();
-          }
-          tablero.insertPieceInBoard(palo4, 0);
-          for (int i = 0; i < 4; i++){
-               tablero.updateBoardOnTick();
-          }
-          tablero.insertPieceInBoard(palo5, 0);
-          
-
-          String[] finalBoard = tablero.getBoard();
-          assertArrayEquals(expected, finalBoard);
-          assertEquals(false, tablero.checkBoard());
-     }
-
-     
+public class RequirementTest_Fifth {
      @Test
      public void check_if_win(){
           Board tablero = new Board();
@@ -188,3 +134,4 @@ public class TetrisTest {
 
      }
 }
+

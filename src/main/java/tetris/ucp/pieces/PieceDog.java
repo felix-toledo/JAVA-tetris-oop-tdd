@@ -11,11 +11,11 @@ public class PieceDog extends PieceBase{
      }
 
      @Override
-     public String showPiece(){
+     public String getPiece(){
           if (isRight){
-               return(right[actualPos]);
+               return(right[getActualPos()]);
           } else {
-               return(left[actualPos]);
+               return(left[getActualPos()]);
           }
      }
 

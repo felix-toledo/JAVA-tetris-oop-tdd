@@ -3,13 +3,20 @@ package tetris.ucp;
 import tetris.ucp.pieces.PieceBase;
 
 public class Clock {
-     private int timer = 0;
-
-     public void tick(PieceBase piece){
+     //DIAGRAMA UML
+     public void tick(){
           setTimer();
      }
 
-     public void setTimer(){
+
+     //Funciones que uso para hacer andar el clock.
+     private int timer = 0;     
+
+     public int getTimer(){
+          return timer;
+     }
+
+     private void setTimer(){
           timer = timer + 1;
      }
 }
