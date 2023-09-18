@@ -7,6 +7,7 @@ import tetris.ucp.pieces.PieceL;
 import tetris.ucp.pieces.PieceSquare;
 import tetris.ucp.pieces.PieceStick;
 import tetris.ucp.pieces.PieceT;
+import java.util.ArrayList;
 
 
 public class Board {
@@ -16,7 +17,7 @@ public class Board {
      }
 
      public PieceBase currentPiece;
-     public PieceBase pieces;
+     public ArrayList<PieceBase> pieces = new ArrayList<>();
 
      //A partir de acá se cumple toda la funcionalidad del tablero necesaria para jugar.
      public String [] board = {    "0000000000",
@@ -39,6 +40,13 @@ public class Board {
                                    "0000000000",
                                    "0000000000",
                                    "0000000000"};
+
+     public void setRandomPieceInPieces(){   
+          setRandomPieceInPieces(giveRandomPiece());
+     }
+     public void setRandomPieceInPieces(PieceBase pieza){
+          pieces.add(pieza);
+     }
 
      public PieceBase giveRandomPiece(){
           Random rand = new Random();
