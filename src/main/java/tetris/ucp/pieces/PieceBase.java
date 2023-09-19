@@ -62,4 +62,8 @@ public class PieceBase implements IRotator{
           return name;
      }
 
+     public boolean isLookingRight(){
+          return actualPos == 1;
+     }
+
 }

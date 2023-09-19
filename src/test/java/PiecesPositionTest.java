@@ -1,12 +1,10 @@
 import static org.junit.Assert.assertEquals;
 
+import java.util.function.Predicate;
+
 import org.junit.Test;
 
-import tetris.ucp.pieces.PieceDog;
-import tetris.ucp.pieces.PieceL;
-import tetris.ucp.pieces.PieceStick;
-import tetris.ucp.pieces.PieceSquare;
-import tetris.ucp.pieces.PieceT;
+import tetris.ucp.pieces.*;
 
 public class PiecesPositionTest {
      @Test
@@ -27,5 +25,4 @@ public class PiecesPositionTest {
           assertEquals("0110110000000000", dogDer.showPieceInPosition(0));
      }
 
-     
 }

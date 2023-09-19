@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 import org.junit.Test;
 
@@ -60,5 +61,53 @@ public class TestListPieces
                          .count();
 
           assertEquals(3, counter);
+     }
+
+     @Test
+     public void give_all_pieces_looking_at_right(){
+          Board tabla = new Board();
+          for (int i = 0; i < 100; i++){
+               tabla.setRandomPieceInPieces();
+          }
+          
+          Predicate<PieceBase> filtroT = p -> p instanceof PieceT;
+          Predicate<PieceBase> filtroDerecha = p -> p.isLookingRight();
+
+          Predicate<PieceBase> filtroTAndDerecha = filtroT.and(filtroDerecha);
+
+          long result = tabla.pieces.stream().filter(filtroTAndDerecha).count();
+
+          assertNotNull(tabla.pieces);
+          assertTrue(result>0);
+          
+     }
+
+     @Test
+     public void giveTwoPieces_filterOne(){
+          Board tabla = new Board();
+          PieceT te = new PieceT();
+          PieceT te2 = new PieceT();
+          PieceT te3 = new PieceT();
+          PieceL l = new PieceL(false);
+
+          te.rotateRight();
+          te2.rotateRight();
+
+          tabla.setRandomPieceInPieces(l);
+          tabla.setRandomPieceInPieces(te);
+          tabla.setRandomPieceInPieces(te2);
+          tabla.setRandomPieceInPieces(te3);
+
+          Predicate<PieceBase> filtroT = p -> p instanceof PieceT;
+          Predicate<PieceBase> filtroDerecha = p -> p.isLookingRight();
+
+          Predicate<PieceBase> filtroTAndDerecha = filtroT.and(filtroDerecha);
+
+          long result = tabla.pieces.stream().filter(filtroTAndDerecha).count();
+          long resultT = tabla.pieces.stream().filter(filtroT).count();
+
+          assertNotNull(tabla.pieces);
+          assertEquals(2, result);
+          assertEquals(3, resultT);
      }
 }
